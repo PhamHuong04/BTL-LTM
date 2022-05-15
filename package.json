@@ -1,0 +1,44 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "watch": "node-sass --watch src\\resources\\scss\\ --output src\\public\\css\\",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhamHuong04/BTL-LTM.git"
+  },
+  "keywords": [
+    "nodejs",
+    "blog",
+    "test"
+  ],
+  "author": "phamHuong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhamHuong04/BTL-LTM/issues"
+  },
+  "homepage": "https://github.com/PhamHuong04/BTL-LTM#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cons": "^0.0.2",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.7",
+    "node-sass": "^7.0.1"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.6",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.0"
+  }
+}

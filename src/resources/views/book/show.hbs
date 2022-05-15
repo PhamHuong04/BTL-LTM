@@ -1,0 +1,31 @@
+<div class="inforbook">
+    <div class="mt-4">
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="{{book.image}}" alt="{{book.name}}">
+            </div>
+            <div class="col-lg-8">
+                <h2>{{book.name}} </h2> <br>
+                <h5>Tác giả: {{book.tacgia}}</h5> <br>
+                <h5>Lượt đọc: {{book.view}}</h5> <br>
+                <h5>Thể loại: {{book.theloai}}</h5> <br>
+                <p>
+                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Xem giới thiệu sách
+                    </a>
+                    <a href="/readingBook/{{readingBook.plug}}/chapter-{{readingBook.chapter}}">
+                        <button class="btn btn-primary" type="button">
+                            Đọc sách
+                        </button>
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        {{{book.mota}}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
