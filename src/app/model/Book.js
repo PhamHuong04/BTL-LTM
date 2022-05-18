@@ -10,7 +10,16 @@ const Book = new Schema({
     theloai: { type: String },
     createdAt: { type: Date, default: Date.now },
     updateAt: { type: Date, default: Date.now },
-    plug: { type: String }
+    plug: { type: String },
+    contents: [
+        {
+            chapter: {type: Number},
+            content: {type: String}
+        }
+        // {
+        //     content: {type: String}
+        // }
+    ]
 });
-
+ 
 module.exports = mongoose.model('Book', Book);

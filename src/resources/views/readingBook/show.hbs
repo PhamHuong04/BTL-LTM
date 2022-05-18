@@ -1,5 +1,11 @@
 <div class="readingBook">
-
+  <div class="position-absolute bottom-0 end-0">
+    <div class="theme">
+      <button onclick="myFunction()">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </div>
   <div class="header">
     <div class="progress-container">
       <div class="progress-bar" id="myBar"></div>
@@ -8,14 +14,19 @@
   <div class="container">
     <h2>{{book.name}} </h2> <br>
     <h5>Tác giả: {{book.tacgia}}</h5> <br>
+  </div>
+
+
+  <div class="container">
     <h3>
-      Chương: {{readingBook.chapter}}
+      Chương: {{currentChapter}}
     </h3>
   </div>
 
+
   <div class="row justify-content-md-center">
     <div class="col col-lg-2">
-      <a href="/readingBook/{{readingBook.plug}}/chapter-{{backChapter readingBook.chapter}}">
+      <a href="/readingBook/{{book.plug}}/chapter-{{backChapter currentChapter}}">
         <button class="btn btn-success backChapter" type="button">
           Chương trước
         </button>
@@ -24,60 +35,56 @@
 
     <div class="col-md-auto">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Menu
+          Mục lục
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/components/dropdowns/">Chuong 1</a>
-          <a class="dropdown-item" href="#">C2</a>
-          <a class="dropdown-item" href="#">C3</a>
+          <a class="dropdown-item" href="/readingBook/{{book.plug}}/chapter-1">Chương 1</a>
+          <a class="dropdown-item" href="/readingBook/{{book.plug}}/chapter-2">Chương 2</a>
+          <a class="dropdown-item" href="/readingBook/{{book.plug}}/chapter-3">Chương 3</a>
         </div>
       </div>
     </div>
 
     <div class="col col-lg-2">
-      <a href="/readingBook/{{readingBook.plug}}/chapter-{{nextChapter readingBook.chapter}}">
+      <a href="/readingBook/{{book.plug}}/chapter-{{nextChapter currentChapter}}">
         <button class="btn btn-success backChapter" type="button">
           Chương sau
         </button>
       </a>
     </div>
-
-  </div>
-  <div class="theme">
-
-    <button onclick="myFunction()">
-      <i class="fas fa-moon"></i>
-    </button>
   </div>
 
   <div class="content">
-
-    <p>{{{readingBook.content}}}</p>
+    <p>{{{getContent book.contents currentChapter}}}</p>
   </div>
 
 
   <div class="row justify-content-md-center">
     <div class="col col-lg-2">
-      <a href="/readingBook/{{readingBook.plug}}/chapter-{{backChapter readingBook.chapter}}">
+      <a href="/readingBook/{{book.plug}}/chapter-{{backChapter currentChapter}}">
         <button class="btn btn-success backChapter" type="button">
           Chương trước
         </button>
       </a>
     </div>
     <div class="col-md-auto">
-      <select class="btn btn-success btn-chapter-nav form-control chapter_jump">
-        <option selected>Mục lục</option>
-        <option value="1">Chương 1</option>
-        <option value="2">Chương 2</option>
-        <option value="3">Chương 3</option>
-        <option value="4">Chương 4</option>
-      </select>
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Mục lục
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/readingBook/{{book.plug}}/chapter-1">Chương 1</a>
+          <a class="dropdown-item" href="/readingBook/{{book.plug}}/chapter-2">Chương 2</a>
+          <a class="dropdown-item" href="/readingBook/{{book.plug}}/chapter-3">Chương 3</a>
+        </div>
+      </div>
     </div>
     <div class="col col-lg-2">
 
-      <a href="/readingBook/{{readingBook.plug}}/chapter-{{nextChapter readingBook.chapter}}">
+      <a href="/readingBook/{{plug}}/chapter-{{nextChapter currentChapter}}">
         <button class="btn btn-success backChapter" type="button">
           Chương sau
         </button>

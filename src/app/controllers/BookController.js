@@ -1,6 +1,6 @@
 const res = require("express/lib/response");
 const Book = require('../model/Book');
-const ReadingBook = require('../model/ReadingBook');
+// const ReadingBook = require('../model/ReadingBook');
 const { mongooseToObject } = require('../../util/mongoose');
 
 class BookController {
@@ -8,12 +8,13 @@ class BookController {
     show(req, res, next) {
         Book.findOne({ plug: req.params.plug })
             .then(book => {
-                // res.render('book/show', { book: mongooseToObject(book) });
-                ReadingBook.findOne({ plug: req.params.plug })
-                    .then(readingBook => {
-                        console.log(req.params.plug);
-                        res.render('book/show', { readingBook: mongooseToObject(readingBook), book: mongooseToObject(book) });
-                    })
+                res.render('book/show', { book: mongooseToObject(book) });
+                // console.log(book);
+                // ReadingBook.findOne({ plug: req.params.plug })
+                //     .then(readingBook => {
+                //         console.log(req.params.plug);
+                //         res.render('book/show', { readingBook: mongooseToObject(readingBook), book: mongooseToObject(book) });
+                //     })
 
             })
             .catch(next);
