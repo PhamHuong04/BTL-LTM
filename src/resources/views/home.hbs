@@ -1,14 +1,27 @@
-<div class="sort">
-
-</div>
-
 <div class="home">
+    <div class="sort">
+        <div class="col-md-auto">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sắp xếp
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/">---Sắp xếp---</a>
+                    <a class="dropdown-item" href="?plug=1">Tên từ A - Z</a>
+                    <a class="dropdown-item" href="?plug=-1">Tên từ Z - A</a>
+                    <a class="dropdown-item" href="?view=1">View tăng dần</a>
+                    <a class="dropdown-item" href="?view=-1">View giảm dần</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="services py-5 bg-light1 text-center">
         <div class="container">
             <div class="row">
                 {{#each books}}
-                <div class="col-sm-4 col-tg-5">
+                <div class="col-sm-4 col-tg-5 my-4">
                     <div class="card card-course-item mb-3">
                         <a href="/books/{{this.plug}}">
                             <img src="{{this.image}}" alt="{{this.name}}" class="img-thumbnail">
@@ -31,10 +44,3 @@
         </div>
     </section>
 </div>
-
-<script
-    src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js'></script>
-<script src="/sort.js"></script>
-<script src="../../public/js/sort.js"></script>

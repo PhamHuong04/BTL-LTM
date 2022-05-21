@@ -15,7 +15,9 @@ class BookController {
                 //         console.log(req.params.plug);
                 //         res.render('book/show', { readingBook: mongooseToObject(readingBook), book: mongooseToObject(book) });
                 //     })
-
+                // book.name.sort();
+                // console.log(book.name);
+               
             })
             .catch(next);
     }
