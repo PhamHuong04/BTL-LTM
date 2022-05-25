@@ -37,7 +37,7 @@ class ReadingBookController {
                             contents: mongooseToObject(book).contents[req.params.chapter]
 
                         });
-                        // console.log("Test: ", mongooseToObject(book).contents[req.params.chapter].chapter);
+                        
                     })
 
             })

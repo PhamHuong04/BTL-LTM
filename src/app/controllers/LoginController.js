@@ -7,17 +7,13 @@ class LoginController {
    
 
     index(req, res, next) {
-        var username = req.body.username,
-            password = req.body.password;
-
 
         User.find({})
 
             .then(user => {
-               
-                // res.render('login', {
-                //     user: mutipleMongooseToObject(user),
-                // });
+                res.render('login', {
+                    user: mutipleMongooseToObject(user),
+                });
             })
             .catch(next);
     }
@@ -25,12 +21,12 @@ class LoginController {
 
         User.findOne({username: req.body.username,password: req.body.password})
             .then(user => {
-                // var hbs = expressHbs.create({});
-                // hbs.handlebars.registerHelper("checkLogin", function (user, pass) {
-                //     if (username == user && password == pass)
-                //     return 1;
-                //     else return 0;
-                // })
+                var hbs = expressHbs.create({});
+                hbs.handlebars.registerHelper("checkLogin", function (user, pass) {
+                    if (username == user && password == pass)
+                    return 1;
+                    else return 0;
+                })
                 console.log(user);
                 // res.render('login', {
                 //     user: mutipleMongooseToObject(user),

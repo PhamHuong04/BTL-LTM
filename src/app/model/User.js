@@ -5,19 +5,19 @@ const User = new Schema({
 
     username: {
         type: String,
-        allowNull: false
+        required:true
     },
-    mail: {
+    email: {
         type: String,
-        unique: true,
-        allowNull: false
+        required: true,
+        unique: true
     },
     password: {
         type: String,
-        allowNull: false
+        required:true
     }
-    
-    
+
+
 }, {
     timestamps: true,
 });

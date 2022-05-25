@@ -5,7 +5,6 @@ const History = new Schema({
     stt: { type: String },
     name: { type: String }, // maxLength: 255
     tacgia: { type: String },
-    percent: { type: String },
     plug: { type: String }
 }, {
     timestamps: true,

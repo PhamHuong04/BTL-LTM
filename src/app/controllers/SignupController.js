@@ -6,10 +6,28 @@ class SignupController {
 
 
     signup(req, res, next) {
-        res.send('Thêm tài khoản mới');
+        User.find()
+            .then(users => {
+                res.render('signup', {
+                    users: mutipleMongooseToObject(users),
+                });
+            })
+            .catch(next);
     }
 
+    // [POST] / SIGNUP / SUCESSFULLY
+
+    sucessfully(req, res, next) {
+       
+        const user = new User(req.body);
+        // console.log("thông tin đăng nhập: ",user);
+        user.save()
+            .then(() => res.redirect('/login'))
+            .catch(error => {
+                res.redirect('/signup')
+            })
+    }
 
 }
 
-module.exports = new SignupController;
+module.exports = new SignupController();
