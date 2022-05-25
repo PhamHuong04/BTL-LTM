@@ -8,18 +8,16 @@ const Book = new Schema({
     image: { type: String },
     mota: { type: String },
     theloai: { type: String },
-    createdAt: { type: Date, default: Date.now },
-    updateAt: { type: Date, default: Date.now },
     plug: { type: String },
     contents: [
         {
             chapter: {type: Number},
             content: {type: String}
         }
-        // {
-        //     content: {type: String}
-        // }
+        
     ]
+}, {
+    timestamps: true,
 });
  
 module.exports = mongoose.model('Book', Book);

@@ -8,18 +8,18 @@
                         src="https://bloganchoi.com/wp-content/uploads/2019/08/5-tren-giay.jpg" />
                 </div>
                 <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                    <form>
+                    <form action="/login-saved">
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example13">Email address</label>
-                            <input type="email" id="form1Example13" class="form-control form-control-lg" />
+                            <label class="form-label" for="email">Email</label>
+                            <input type="email" id="email" class="form-control form-control-lg" name = "email" />
 
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example23">Password</label>
-                            <input type="password" id="form1Example23" class="form-control form-control-lg" />
+                            <label class="form-label" for="password">Mật khẩu</label>
+                            <input type="password" id="password" class="form-control form-control-lg" name = ""/>
 
                         </div>
 
@@ -27,13 +27,13 @@
                             <!-- Checkbox -->
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                                <label class="form-check-label" for="form1Example3"> Remember me </label>
+                                <label class="form-check-label" for="form1Example3"> Lưu mật khẩu </label>
                             </div>
-                            <a href="#!">Forgot password?</a>
+                            <a href="#!">Quên mật khẩu?</a>
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Đăng nhập</button>
 
                         <div class="divider d-flex align-items-center my-4">
                             <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
@@ -41,11 +41,11 @@
 
                         <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
                             role="button">
-                            <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+                            <i class="fab fa-facebook-f me-2"></i> Đăng nhập bằng Facebook
                         </a>
                         <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
                             role="button">
-                            <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
+                            <i class="fab fa-twitter me-2"></i> Đăng nhập bằng Twitter</a>
 
                     </form>
                 </div>
@@ -53,3 +53,63 @@
         </div>
     </section>
 </div>
+
+<script>
+    const form = document.querySelector('form')
+    const email = document.getElementById('email')
+    const password = document.getElementById('password')
+
+    var slideIndex = 0;
+    showSlides();
+
+
+    // Show input error message
+    function showError(input, message) {
+        const formControl = input.parentElement
+        formControl.className = 'form-control error'
+        const small = formControl.querySelector('small')
+        small.innerText = message
+    }
+
+    // Show success outline
+    function showSuccess(input) {
+        const formControl = input.parentElement
+        formControl.className = 'form-control success'
+        const small = formControl.querySelector('small')
+        small.innerText = ''
+    }
+
+  
+
+    // Check required fields
+    function checkRequired(inputArr) {
+        let isRequired = false
+        inputArr.forEach(function (input) {
+            if (input.value.trim() === '') {
+                showError(input, `${getFieldName(input)} is required`)
+                isRequired = true
+            } else {
+                showSuccess(input)
+            }
+        })
+
+        return isRequired
+    }
+    
+
+
+    // Get fieldname
+    function getFieldName(input) {
+        return input.id.charAt(0).toUpperCase() + input.id.slice(1)
+    }
+
+    // Event listeners
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+
+        if (!checkRequired([ email, password])) {
+            checkLength(password, 6, 25)
+            checkEmail(email)
+        }
+    })
+</script>

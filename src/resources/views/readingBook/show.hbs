@@ -82,30 +82,30 @@
           <a class="dropdown-item" href="/readingBook/{{book.plug}}/chapter-3">Chương 3</a>
         </div>
       </div>
-    </div>
-    <div class="col col-lg-2">
+      
+      <div class="col col-lg-2">
 
-      <a href="/readingBook/{{plug}}/chapter-{{nextChapter currentChapter}}">
-        <button class="btn btn-success backChapter" type="button">
-          Chương sau
-        </button>
-      </a>
+        <a href="/readingBook/{{plug}}/chapter-{{nextChapter currentChapter}}">
+          <button class="btn btn-success backChapter" type="button">
+            Chương sau
+          </button>
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
 
-<script>
-  function myFunction() {
-    const element = document.body;
-    element.classList.toggle("dark");
-  }
-  window.onscroll = function () { myFunction1() };
+  <script>
+    function myFunction() {
+      const element = document.body;
+      element.classList.toggle("dark");
+    }
+    window.onscroll = function () { myFunction1() };
 
-  function myFunction1() {
-    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    var scrolled = (winScroll / height) * 100;
-    document.getElementById("myBar").style.width = scrolled + "%";
-  }
-</script>
+    function myFunction1() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("myBar").style.width = scrolled + "%";
+    }
+  </script>
