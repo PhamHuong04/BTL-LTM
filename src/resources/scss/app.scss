@@ -58,17 +58,6 @@ img {
   max-height: 100%;
 }
 
-.header .account {
-  margin-left: 1rem;
-}
-
-.inforbook .col-lg-8 {
-  margin-bottom: 30rem;
-}
-
-.inforbook .row {
-  margin-top: 5rem;
-}
 
 .header .navbar {
   position: fixed;
@@ -77,6 +66,7 @@ img {
   right: 0;
   z-index: 100;
   margin-bottom: 1rem;
+
 }
 
 .header .navbar .nav-link {
@@ -87,14 +77,17 @@ img {
   flex-wrap: nowrap;
 }
 
-footer {
-  margin-top: 1rem;
-
+.header .account {
+  margin-left: 1rem;
+  margin-right: 5rem;
 }
 
-/* .home {
-margin-top: 7rem;
-} */
+
+
+footer {
+  margin-top: 1rem;
+}
+
 
 .login img {
 
@@ -120,6 +113,14 @@ margin-top: 7rem;
 
 .home .col-sm-4+.col-tg-5 {
   margin-bottom: 2rem 2rem;
+}
+
+.inforbook .col-lg-8 {
+  margin-bottom: 30rem;
+}
+
+.inforbook .row {
+  margin-top: 5rem;
 }
 
 .readingBook {
