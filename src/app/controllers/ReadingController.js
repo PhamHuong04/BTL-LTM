@@ -5,6 +5,7 @@ const Book = require('../model/Book');
 const { mongooseToObject } = require('../../util/mongoose');
 var expressHbs = require('express-handlebars');
 const { clearConfigCache } = require("prettier");
+const { hbsContent } = require("../../constants");
 
 class ReadingBookController {
     show(req, res, next) {
@@ -12,6 +13,10 @@ class ReadingBookController {
         Book.findOne({ chapter: req.params.chapter })
 
             .then(book => {
+                if (req.session.user) {
+                    hbsContent.loggedin = true;
+                    hbsContent.userName = req.session.user.username;
+                }
                 // console.log(book.contents)
                 var hbs = expressHbs.create({});
                 hbs.handlebars.registerHelper('backChapter', function (chapter) {
@@ -34,7 +39,8 @@ class ReadingBookController {
                         res.render('readingBook/show', {
                             book: mongooseToObject(book),
                             currentChapter: Number(req.params.chapter),
-                            contents: mongooseToObject(book).contents[req.params.chapter]
+                            contents: mongooseToObject(book).contents[req.params.chapter],
+                            ...hbsContent
 
                         });
                         

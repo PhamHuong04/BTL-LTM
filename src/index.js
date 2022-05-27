@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser')
+const methodOverride = require('method-override');
 // const User = require('./app/model/User')
 
 const app = express();
@@ -11,7 +13,7 @@ const port = 3000;
 const route = require('./routes');
 const db = require('./config/db');
 
-const hbsContent = {userName: '', loggedin: false}; 
+const hbsContent = { userName: '', loggedin: false, id: '' };
 // const hbsContent = require('./constants/index')
 
 // set morgan to log info about our requests for development use.
@@ -24,6 +26,7 @@ app.use(express.urlencoded({
     extended: true,
 }));
 
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser());
 // initialize express-session to allow us track the logged-in user across sessions.
 app.use(session({
@@ -32,7 +35,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        expires: 600000
+        expires: 60000000
     }
 }));
 
@@ -51,8 +54,10 @@ app.use((req, res, next) => {
     }
     next();
 });
-
+app.use(methodOverride('_method'));
 app.use(express.json());
+
+
 //Routes init
 route(app);
 

@@ -1,4 +1,4 @@
-const hbsContent = { userName: '', loggedin: false };
+const hbsContent = { userName: '', loggedin: false, id: '' };
 
 module.exports = {
     hbsContent

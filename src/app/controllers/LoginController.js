@@ -38,9 +38,9 @@ class LoginController {
 
 
 
-    show(req, res) {
-        res.send('New detail!!');
-    }
+    // show(req, res) {
+    //     res.send('New detail!!');
+    // }
 
 }
 

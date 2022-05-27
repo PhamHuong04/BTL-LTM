@@ -14,7 +14,7 @@ class LogoutController {
             .then(user => {
                 res.render('logout', {
                     user: mutipleMongooseToObject(user),
-                    ...hbsContent
+                    // ...hbsContent
                 });
             })
             .catch(next);
@@ -27,7 +27,7 @@ class LogoutController {
                 if (user) {
                     hbsContent.loggedin = false; 
                     res.clearCookie('user_sid');
-                    res.redirect('/');
+                    res.redirect('/login');
                 } else {
                     res.redirect('/login');
                 }
@@ -38,9 +38,9 @@ class LogoutController {
 
 
 
-    show(req, res) {
-        res.send('New detail!!');
-    }
+    // show(req, res) {
+    //     res.send('New detail!!');
+    // }
 
 }
 

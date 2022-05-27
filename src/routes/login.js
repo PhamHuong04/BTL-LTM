@@ -6,7 +6,7 @@ const sessionChecker = require('../middlewares/sessionChecker');
 
 
 
-router.get('/:slug', loginController.show);
+router.get('/:slug', loginController.index);
 router.get('/', loginController.index);
 router.post('/login-saved', loginController.loginSaved);
 
