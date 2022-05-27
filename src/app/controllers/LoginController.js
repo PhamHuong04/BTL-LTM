@@ -3,38 +3,39 @@ const User = require('../model/User');
 const { mutipleMongooseToObject } = require('../../util/mongoose');
 var expressHbs = require('express-handlebars');
 var bcrypt = require('bcrypt');
+const { hbsContent } = require("../../constants");
+
 class LoginController {
-   
+
 
     index(req, res, next) {
 
         User.find({})
-
             .then(user => {
                 res.render('login', {
                     user: mutipleMongooseToObject(user),
+                    ...hbsContent
                 });
             })
             .catch(next);
     }
-    loginSaved(req, res, next) {
 
-        User.findOne({username: req.body.username,password: req.body.password})
+
+    loginSaved(req, res, next) {
+        User.findOne({ email: req.body.email, password: req.body.password })
             .then(user => {
-                var hbs = expressHbs.create({});
-                hbs.handlebars.registerHelper("checkLogin", function (user, pass) {
-                    if (username == user && password == pass)
-                    return 1;
-                    else return 0;
-                })
-                console.log(user);
-                // res.render('login', {
-                //     user: mutipleMongooseToObject(user),
-                // });
+                // console.log("Thong tin tim duoc: ", user)
+                if (user) {
+                    req.session.user = user
+                    res.redirect('/');
+                } else {
+                    res.redirect('/login');
+                }
+
             })
             .catch(next);
     }
-    
+
 
 
     show(req, res) {

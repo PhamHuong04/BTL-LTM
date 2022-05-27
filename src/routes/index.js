@@ -7,7 +7,6 @@ const signupRouter = require("./signup");
 
 function route(app) {
 
-    app.use('/home', homeRouter);
     app.use('/login', loginRouter);
     app.use('/books', bookRouter);
     app.use('/history', historyRouter);

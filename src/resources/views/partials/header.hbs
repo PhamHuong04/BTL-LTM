@@ -31,8 +31,11 @@
             </div>
             <div class="account">
                 <button type="button" class="btn btn-outline-info">
-
+                    {{# if loggedin}}
+                    {{userName}}
+                    {{else }}
                     <i class="fas fa-user-circle"></i>
+                    {{/if}}
                 </button>
             </div>
         </div>
@@ -40,3 +43,6 @@
 
     </nav>
 </div>
+<script>
+
+</script>

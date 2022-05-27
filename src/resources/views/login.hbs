@@ -8,18 +8,17 @@
                         src="https://bloganchoi.com/wp-content/uploads/2019/08/5-tren-giay.jpg" />
                 </div>
                 <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                    <form method="GET" action="/login-saved">
+                    <form method="POST" action="/login/login-saved">
                         <!-- Email input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="email">Email</label>
                             <input type="email" id="email" class="form-control form-control-lg" name="email" />
-
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="password">Mật khẩu</label>
-                            <input type="password" id="password" class="form-control form-control-lg" name="" />
+                            <input type="password" id="password" class="form-control form-control-lg" name="password" />
 
                         </div>
 
@@ -102,7 +101,7 @@
         return isRequired;
     }
 
-    
+
     // Get fieldname
     function getFieldName(input) {
         return input.id.charAt(0).toUpperCase() + input.id.slice(1);
@@ -112,7 +111,7 @@
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        if (!checkRequired([ email, password])) {
+        if (!checkRequired([email, password])) {
             checkEmail(email);
         }
     })
