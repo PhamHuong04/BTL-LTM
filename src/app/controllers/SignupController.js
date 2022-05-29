@@ -21,6 +21,7 @@ class SignupController {
     sucessfully(req, res, next) {
        
         const user = new User(req.body);
+        // hbsContent.loggedin = false;
         // console.log("thông tin đăng nhập: ",user);
         user.save()
             .then(() => res.redirect('/login'))

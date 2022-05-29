@@ -6,8 +6,8 @@ const sessionChecker = require('../middlewares/sessionChecker');
 
 
 
-router.get('/logout-saved', logoutController.logoutSaved);
-router.get('/:plug', logoutController.logoutSaved);
-router.get('/', logoutController.logoutSaved);
+router.get('/logout-saved', sessionChecker, logoutController.logoutSaved);
+router.get('/:plug', sessionChecker, logoutController.logoutSaved);
+router.get('/', sessionChecker, logoutController.logoutSaved);
 
 module.exports = router;

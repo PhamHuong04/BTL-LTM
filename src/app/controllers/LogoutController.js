@@ -28,7 +28,7 @@ class LogoutController {
                 if (user) {
                     hbsContent.loggedin = false; 
                     res.clearCookie('user_sid');
-                    res.redirect('/login');
+                    res.redirect('/');
                 } else {
                     res.redirect('/login');
                 }

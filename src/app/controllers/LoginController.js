@@ -3,7 +3,6 @@ const User = require('../model/User');
 const { mutipleMongooseToObject } = require('../../util/mongoose');
 var expressHbs = require('express-handlebars');
 var bcrypt = require('bcrypt');
-const { hbsContent } = require("../../constants");
 
 class LoginController {
 
@@ -14,7 +13,7 @@ class LoginController {
             .then(user => {
                 res.render('login', {
                     user: mutipleMongooseToObject(user),
-                    ...hbsContent
+                   
                 });
             })
             .catch(next);
@@ -24,7 +23,7 @@ class LoginController {
     loginSaved(req, res, next) {
         User.findOne({ email: req.body.email, password: req.body.password })
             .then(user => {
-                // console.log("Thong tin tim duoc: ", user)
+                
                 if (user) {
                     req.session.user = user
                     res.redirect('/');

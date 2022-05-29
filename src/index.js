@@ -13,7 +13,7 @@ const port = 3000;
 const route = require('./routes');
 const db = require('./config/db');
 
-const hbsContent = { userName: '', loggedin: false, id: '' };
+// const hbsContent = { userName: '', loggedin: false, id: '' };
 // const hbsContent = require('./constants/index')
 
 // set morgan to log info about our requests for development use.

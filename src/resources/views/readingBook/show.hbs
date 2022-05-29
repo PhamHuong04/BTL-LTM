@@ -5,6 +5,7 @@
         <i class="fas fa-moon"></i>
       </button>
     </div>
+    {{!-- <button type="button" class="btn btn-outline-info">Tiến trình: {{process}}</button> --}}
   </div>
 
   <div class="header">
@@ -16,7 +17,10 @@
     <h2>{{book.name}} </h2> <br>
     <h5>Tác giả: {{book.tacgia}}</h5> <br>
   </div>
+  {{# if currentChapter}}
 
+  {{else}}
+  {{/if}}
 
   <div class="container">
     <h3>
@@ -70,6 +74,7 @@
         </button>
       </a>
     </div>
+
     <div class="col-md-auto">
       <div class="dropdown">
         <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -82,16 +87,18 @@
           <a class="dropdown-item" href="/readingBook/{{book.plug}}/chapter-3">Chương 3</a>
         </div>
       </div>
-      
-      <div class="col col-lg-2">
-
-        <a href="/readingBook/{{plug}}/chapter-{{nextChapter currentChapter}}">
-          <button class="btn btn-success backChapter" type="button">
-            Chương sau
-          </button>
-        </a>
-      </div>
     </div>
+
+    <div class="col col-lg-2">
+      <a href="/readingBook/{{book.plug}}/chapter-{{nextChapter currentChapter}}">
+        <button class="btn btn-success backChapter" type="button">
+          Chương sau
+        </button>
+      </a>
+    </div>
+  </div>
+
+  
   </div>
 
 

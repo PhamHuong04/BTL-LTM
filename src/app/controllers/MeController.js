@@ -10,7 +10,7 @@ class MeController {
 
     infor(req, res, next) {
 
-        User.findOne({})
+        User.findOne({ _id: req.session.user._id})
             .then(user => {
                 if (req.session.user) {
                     hbsContent.loggedin = true;
@@ -41,7 +41,7 @@ class MeController {
                         sex
                     }, { new: true })
                         .then((_user) => {
-                            console.log(_user);
+                            // console.log(_user);
                             if (_user) {
 
                                 res.redirect('/')
