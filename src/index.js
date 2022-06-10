@@ -5,9 +5,11 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override');
+require('dotenv').config();
 // const User = require('./app/model/User')
 
 const app = express();
+// app.use(dotenv);
 const port = process.env.PORT || 3000;
 
 const route = require('./routes');
